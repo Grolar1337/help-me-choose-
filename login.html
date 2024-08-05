@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Me Choose | Home</title>
+  <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./site.webmanifest">
+</head>
+
+<!-- Loading Screen-->
+<div id="loading-section" class="fixed inset-0 flex flex-col justify-center items-center bg-white text-white z-50">
+  <div class="hourglassBackground">
+    <div class="hourglassContainer">
+      <div class="hourglassCurves"></div>
+      <div class="hourglassCapTop"></div>
+      <div class="hourglassGlassTop"></div>
+      <div class="hourglassSand"></div>
+      <div class="hourglassSandStream"></div>
+      <div class="hourglassCapBottom"></div>
+      <div class="hourglassGlass"></div>
+    </div>
+  </div>
+</div>
+
+<body class="w-[100%] bg-gray-100">
+
+  <!--Nav-->
+  <nav class="p-4 bg-gray-100" data-aos="fade-down" data-aos-duration="3000">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="./logo-alt.png" alt="Logo" class="h-[5em] w-[5em] mr-2">
+      </div>
+
+    </div>
+  </nav>
+
+    <div class="bg-gray-100 flex flex-col items-center justify-center mt-[8%]"  data-aos="fade-down" data-aos-duration="3000">
+      <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Login</h2>
+        <form class="flex flex-col">
+          <input type="username" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Username">
+          <input type="password" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Password">
+          <div class="flex items-center justify-between flex-wrap">
+            <label for="remember-me" class="text-sm text-gray-900 cursor-pointer">
+              <input type="checkbox" id="remember-me" class="mr-2">
+              Remember me
+            </label>
+            <a href="#" class="text-sm text-blue-500 hover:underline mb-0.5">Forgot password?</a>
+            <p class="text-gray-900 mt-4"> Don't have an account? <a href="#" class="text-sm text-blue-500 -200 hover:underline mt-4">Signup</a></p>
+          </div>
+          <button type="submit" class="bg-[#0e6b4C] text-white font-bold py-2 px-4 rounded-md mt-4 hover:scale-[110%] transition ease-in-out duration-150">Login</button>
+        </form>
+      </div>
+    </div>
+    
+
+
+
+  <script>
+    $(window).on("load", function () {
+      $("#loading-section").fadeOut(100);
+    });
+
+    $('#menu-toggle').click(function () {
+      $('#mobile-menu').toggle();
+    });
+    AOS.init();
+  </script>
+</body>
+
+</html>
