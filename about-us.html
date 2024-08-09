@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Me Choose | About Us</title>
+  <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./site.webmanifest">
+</head>
+
+<!-- Loading Screen-->
+<div id="loading-section" class="fixed inset-0 flex flex-col justify-center items-center bg-white text-white z-50">
+  <div class="hourglassBackground">
+    <div class="hourglassContainer">
+      <div class="hourglassCurves"></div>
+      <div class="hourglassCapTop"></div>
+      <div class="hourglassGlassTop"></div>
+      <div class="hourglassSand"></div>
+      <div class="hourglassSandStream"></div>
+      <div class="hourglassCapBottom"></div>
+      <div class="hourglassGlass"></div>
+    </div>
+  </div>
+</div>
+
+<body class="w-[100%] ">
+
+  <!--Nav-->
+  <nav class="p-4" data-aos="fade-down" data-aos-duration="3000">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="./logo-alt.png" alt="Logo" class="h-[5em] w-[5em] mr-2">
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-black hover:text-green-700">Home</a>
+        <a href="#" class="text-black hover:text-green-700">About</a>
+        <a href="#" class="text-black hover:text-green-700">Services</a>
+        <a href="#" class="text-black hover:text-green-700">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-green-700 hover:text-green-700 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Home</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">About</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Services</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Contact</a>
+    </div>
+  </nav>
+
+  <!-- About Us -->
+
+  <section class="max-w-4xl mx-auto py-12 px-6 bg-white shadow-md rounded-lg" data-aos="fade-up" data-aos-duration="3000">
+    <h1 class="text-4xl font-bold mb-8 text-center">About Us</h1>
+
+    <section class="mb-8" data-aos="fade-up" data-aos-duration="3000">
+      <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+      <p class="text-base leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut eros sit amet sapien faucibus facilisis. Sed
+        vehicula velit at ante sodales, quis gravida magna vehicula. Morbi non sapien dui. Proin malesuada libero sit
+        amet nisi fermentum, non cursus lectus tincidunt.
+      </p>
+    </section>
+
+    <section class="mb-8" data-aos="fade-up" data-aos-duration="3000">
+      <h2 class="text-2xl font-semibold mb-4">Our History</h2>
+      <p class="text-base leading-relaxed">
+        Curabitur auctor leo in est feugiat, vel consectetur metus vestibulum. Donec faucibus quam eget ipsum faucibus,
+        nec congue dolor ornare. Quisque id hendrerit libero. Cras dapibus tincidunt sem at egestas. Vivamus fermentum
+        lectus eu turpis vestibulum tincidunt. Fusce a auctor eros.
+      </p>
+      <p class="text-base leading-relaxed mt-4">
+        Aliquam erat volutpat. Suspendisse ac metus id ligula gravida congue. Donec a dapibus leo, sed gravida felis.
+        Phasellus consequat diam nec magna sollicitudin, et dapibus ex dictum. Vivamus at ornare nisi, a volutpat dolor.
+      </p>
+    </section>
+
+    <section class="mb-8" data-aos="fade-up" data-aos-duration="3000">
+      <h2 class="text-2xl font-semibold mb-4">Our Team</h2>
+      <p class="text-base leading-relaxed">
+        Praesent vel fermentum risus. Nam a lorem eu augue pharetra scelerisque. In et justo in sem auctor tempus. Nam
+        facilisis, magna at pulvinar facilisis, velit urna feugiat tortor, a ultricies turpis purus sed augue. In vel
+        lorem eu odio dapibus fringilla.
+      </p>
+      <p class="text-base leading-relaxed mt-4">
+        Etiam cursus velit id felis luctus, sed posuere ligula ullamcorper. Fusce sed libero vel turpis aliquam
+        fermentum. Integer ut fringilla lorem, sit amet tristique urna. Fusce euismod erat eu sapien convallis, vel
+        pretium ipsum gravida.
+      </p>
+    </section>
+
+    <section class="mb-8" data-aos="fade-up" data-aos-duration="3000">
+      <h2 class="text-2xl font-semibold mb-4">Our Values</h2>
+      <p class="text-base leading-relaxed">
+        Fusce euismod lacus id nisi bibendum, vel auctor risus tristique. Cras sagittis magna sit amet justo
+        condimentum, at auctor eros euismod. Donec pretium, enim nec iaculis faucibus, felis felis viverra ex, nec
+        dignissim nulla lacus vel magna.
+      </p>
+      <p class="text-base leading-relaxed mt-4">
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque tristique,
+        velit vel iaculis dictum, nulla lacus lacinia lectus, sed malesuada mi velit id libero.
+      </p>
+    </section>
+
+    <section class="mb-8" data-aos="fade-up" data-aos-duration="3000">
+      <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+      <p class="text-base leading-relaxed">
+        Donec euismod justo id risus tincidunt, non auctor sapien viverra. Integer pharetra lacus in ligula fermentum,
+        in scelerisque ex pulvinar. Cras at turpis a est tristique fermentum. Aliquam erat volutpat.
+      </p>
+      <p class="text-base leading-relaxed mt-4">
+        Nulla sit amet sapien eu ligula egestas dignissim. Integer a lorem augue. Curabitur ut libero vel ligula auctor
+        finibus.
+      </p>
+    </section>
+
+  </section>
+
+
+
+  <script>
+    $(window).on("load", function () {
+      $("#loading-section").fadeOut(100);
+    });
+
+    $('#menu-toggle').click(function () {
+      $('#mobile-menu').toggle();
+    });
+    AOS.init();
+  </script>
+</body>
+
+</html>
