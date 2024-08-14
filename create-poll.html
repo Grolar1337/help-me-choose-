@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Me Choose | Create Poll</title>
+  <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./site.webmanifest">
+</head>
+
+<!-- Loading Screen-->
+<div id="loading-section" class="fixed inset-0 flex flex-col justify-center items-center bg-white text-white z-50">
+  <div class="hourglassBackground">
+    <div class="hourglassContainer">
+      <div class="hourglassCurves"></div>
+      <div class="hourglassCapTop"></div>
+      <div class="hourglassGlassTop"></div>
+      <div class="hourglassSand"></div>
+      <div class="hourglassSandStream"></div>
+      <div class="hourglassCapBottom"></div>
+      <div class="hourglassGlass"></div>
+    </div>
+  </div>
+</div>
+
+<body class="w-[100%] h-screen ">
+
+ <!-- Dashboard Container -->
+ <div class="flex flex-col md:flex-row h-screen">
+        
+    <!-- Sidebar with Dropdown -->
+    <div class="bg-[#0e6b4C] text-white w-full md:w-64 flex flex-col">
+        <div class="p-6 flex items-center justify-between md:justify-start">
+            <h1 class="text-2xl font-bold">Dashboard</h1>
+            <!-- Hamburger Icon for Mobile -->
+            <button id="menu-toggle" class="block md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Navigation Menu -->
+        <nav id="menu" class="flex-1 md:block hidden">
+            <ul>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Home</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Create Poll</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">My Polls</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Notifications</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Profile</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Settings</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-green-900">
+                    <a href="#" class="block">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <!-- Poll Creation Form -->
+        <div class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Create a New Poll</h1>
+            
+            <!-- Poll Question -->
+            <div class="mb-6">
+                <label for="poll-question" class="block text-gray-700 font-semibold mb-2">Poll Question:</label>
+                <input type="text" id="poll-question" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your poll question here">
+            </div>
+
+            <!-- Poll Options -->
+            <div id="poll-options-container" class="mb-6">
+                <label class="block text-gray-700 font-semibold mb-2">Poll Options:</label>
+
+                <!-- Option 1 -->
+                <div class="mb-4">
+                    <label class="block text-gray-600 mb-2">Option 1:</label>
+                    <input type="file" id="option-1" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                </div>
+
+                <!-- Option 2 -->
+                <div class="mb-4">
+                    <label class="block text-gray-600 mb-2">Option 2:</label>
+                    <input type="file" id="option-2" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Add More Options -->
+            <button id="add-option" class="bg-[#0e6b4C] text-white px-4 py-2 rounded-lg hover:bg-green-900 mb-6">+ Add Another Option</button>
+
+            <!-- Submit Poll -->
+            <div class="text-center">
+                <button class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg hover:bg-green-900">Create Poll</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to Handle Adding More Options -->
+<script>
+    document.getElementById('add-option').addEventListener('click', function() {
+        const pollOptionsContainer = document.getElementById('poll-options-container');
+        const optionCount = pollOptionsContainer.querySelectorAll('input[type="file"]').length + 1;
+        
+        const newOptionDiv = document.createElement('div');
+        newOptionDiv.className = 'mb-4';
+        newOptionDiv.innerHTML = `
+            <label class="block text-gray-600 mb-2">Option ${optionCount}:</label>
+            <input type="file" id="option-${optionCount}" class="block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+        `;
+        pollOptionsContainer.appendChild(newOptionDiv);
+    });
+</script>
+
+  <script>
+    $(window).on("load", function () {
+      $("#loading-section").fadeOut(100);
+    });
+
+    $('#menu-toggle').click(function () {
+      $('#mobile-menu').toggle();
+    });
+    AOS.init();
+  </script>
+</body>
+
+</html>
