@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Me Choose | Dashboard</title>
+  <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./site.webmanifest">
+</head>
+
+<!-- Loading Screen-->
+<div id="loading-section" class="fixed inset-0 flex flex-col justify-center items-center bg-white text-white z-50">
+  <div class="hourglassBackground">
+    <div class="hourglassContainer">
+      <div class="hourglassCurves"></div>
+      <div class="hourglassCapTop"></div>
+      <div class="hourglassGlassTop"></div>
+      <div class="hourglassSand"></div>
+      <div class="hourglassSandStream"></div>
+      <div class="hourglassCapBottom"></div>
+      <div class="hourglassGlass"></div>
+    </div>
+  </div>
+</div>
+
+<body class="w-[100%] ">
+
+    <!-- Dashboard Container -->
+    <div class="flex flex-col md:flex-row h-screen">
+        
+        <!-- Sidebar with Dropdown -->
+        <div class="bg-[#0e6b4C] text-white w-full md:w-64 flex flex-col">
+            <div class="p-6 flex items-center justify-between md:justify-start">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <!-- Hamburger Icon for Mobile -->
+                <button id="menu-toggle" class="block md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Navigation Menu -->
+            <nav id="menu" class="flex-1 md:block hidden">
+                <ul>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Home</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Create Poll</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">My Polls</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Notifications</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Profile</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Settings</a>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-green-700">
+                        <a href="#" class="block">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="mb-6">
+                <h2 class="text-3xl font-semibold text-gray-800">Welcome Back, User!</h2>
+                <p class="text-gray-600">Here’s what’s happening with your polls today.</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold text-gray-700">Active Polls</h3>
+                    <p class="text-2xl font-bold text-[#0e6b4C]">5</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold text-gray-700">Total Votes</h3>
+                    <p class="text-2xl font-bold text-[#0e6b4C]">128</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold text-gray-700">New Notifications</h3>
+                    <p class="text-2xl font-bold text-[#0e6b4C]">3</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                <ul>
+                    <li class="flex justify-between border-b py-2">
+                        <span>Poll "Favorite Color" received 10 new votes</span>
+                        <span class="text-gray-600">10 mins ago</span>
+                    </li>
+                    <li class="flex justify-between border-b py-2">
+                        <span>Poll "Best Programming Language" was created</span>
+                        <span class="text-gray-600">2 hours ago</span>
+                    </li>
+                    <li class="flex justify-between border-b py-2">
+                        <span>Profile updated successfully</span>
+                        <span class="text-gray-600">Yesterday</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to Toggle Dropdown Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+
+  <script>
+    $(window).on("load", function () {
+      $("#loading-section").fadeOut(100);
+    });
+
+    $('#menu-toggle').click(function () {
+      $('#mobile-menu').toggle();
+    });
+    AOS.init();
+  </script>
+</body>
+
+</html>
