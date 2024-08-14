@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<body class="w-[100%] ">
+<body class="w-[100%] h-screen ">
     <!-- Dashboard Container -->
     <div class="flex flex-col md:flex-row h-screen">
 
@@ -57,41 +57,42 @@
             <!-- Navigation Menu -->
             <nav id="menu" class="flex-1 md:block hidden">
                 <ul>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Home</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Create Poll</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">My Polls</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Notifications</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Profile</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Settings</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-700">
+                    <li class="px-4 py-2 hover:bg-green-900">
                         <a href="#" class="block">Logout</a>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <!-- Poll Container -->
+        <!-- Main Content -->
         <div class="flex-1 p-6">
-            <div class="flex flex-col items-center justify-center min-h-screen">
+            <!-- Poll Container -->
+            <div class="flex flex-col items-center justify-center">
                 <!-- Poll Question -->
                 <h1 class="text-3xl font-bold mb-8">Which is Better</h1>
 
                 <!-- Poll Options -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
                     <!-- Option A -->
-                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
                         <div class="bg-gray-100 rounded-full p-4 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="w-12 h-12 text-red-500">
@@ -108,7 +109,7 @@
                     </div>
 
                     <!-- Option B -->
-                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
                         <div class="bg-gray-100 rounded-full p-4 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="w-12 h-12 text-red-500">
@@ -133,15 +134,16 @@
         </div>
     </div>
 
-        <!-- Script to Toggle Dropdown Menu -->
-        <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
-    
-            menuToggle.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        </script>
+    <!-- Script to Toggle Dropdown Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
     <script>
         $(window).on("load", function () {
             $("#loading-section").fadeOut(100);
