@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help Me Choose | {Poll Name}</title>
+    <title>Help Me Choose | {poll name}</title>
     <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -20,6 +20,25 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="manifest" href="./site.webmanifest">
+    <style>
+        /* Custom styles to ensure the sidebar is fixed on larger screens */
+        @media (min-width: 768px) {
+            .sidebar {
+                position: fixed;
+                height: 100vh;
+                /* Full height */
+                top: 0;
+                left: 0;
+                overflow-y: auto;
+                /* Enable scrolling within the sidebar if needed */
+            }
+
+            .content {
+                margin-left: 16rem;
+                /* Width of the sidebar */
+            }
+        }
+    </style>
 </head>
 
 <!-- Loading Screen-->
@@ -38,11 +57,12 @@
 </div>
 
 <body class="w-[100%] h-screen ">
+
     <!-- Dashboard Container -->
     <div class="flex flex-col md:flex-row h-screen">
 
-        <!-- Sidebar with Dropdown -->
-        <div class="bg-[#0e6b4C] text-white w-full md:w-64 flex flex-col">
+        <!-- Sidebar -->
+        <div class="sidebar bg-[#0e6b4C] text-white w-full md:w-64 flex flex-col">
             <div class="p-6 flex items-center justify-between md:justify-start">
                 <h1 class="text-2xl font-bold">Dashboard</h1>
                 <!-- Hamburger Icon for Mobile -->
@@ -57,25 +77,22 @@
             <!-- Navigation Menu -->
             <nav id="menu" class="flex-1 md:block hidden">
                 <ul>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">Home</a>
+                    <li class="px-4 py-2 hover:bg-[#084931]">
+                        <a href="./user-dashboard.html" class="block">Home</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">Create Poll</a>
+                    <li class="px-4 py-2 hover:bg-[#084931]">
+                        <a href="./create-poll.html" class="block">Create Poll</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">My Polls</a>
+                    <li class="px-4 py-2 hover:bg-[#084931]">
+                        <a href="./my-polls.html" class="block">My Polls</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">Notifications</a>
+                    <li class="px-4 py-2 hover:bg-[#084931]">
+                        <a href="./notifications.html" class="block">Notifications</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">Profile</a>
+                    <li class="px-4 py-2 hover:bg-[#084931]">
+                        <a href="./profile.html" class="block">Profile</a>
                     </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
-                        <a href="#" class="block">Settings</a>
-                    </li>
-                    <li class="px-4 py-2 hover:bg-green-900">
+                    <li class="px-4 py-2 hover:bg-[#084931]">
                         <a href="#" class="block">Logout</a>
                     </li>
                 </ul>
@@ -83,54 +100,134 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 p-6">
+        <div class="content flex-1 p-6">
             <!-- Poll Container -->
             <div class="flex flex-col items-center justify-center">
                 <!-- Poll Question -->
-                <h1 class="text-3xl font-bold mb-8">Which is Better</h1>
+                <h1 class="text-3xl font-bold mb-4">Which is Better?</h1>
+
+                <!-- Poll Details -->
+                <p class="text-gray-500 text-sm mb-8">Posted by <span class="font-semibold">John Doe</span> on August
+                    16, 2024</p>
 
                 <!-- Poll Options -->
-                <div class="grid grid-cols-2 gap-6 w-full max-w-4xl">
+                <form id="poll-form" class="grid grid-cols-2 gap-6 w-full max-w-4xl">
                     <!-- Option A -->
-                    <div
-                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
-                        <img src="./src/img/1.jpeg" class="w-full h-full object-cover rounded-lg" alt="" srcset="">
-                    </div>
+                    <label
+                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150 cursor-pointer">
+                        <input type="radio" name="pollOption" value="A" class="hidden peer">
+                        <img src="./src/img/1.jpeg" class="w-full h-full object-cover rounded-lg mb-4" alt="Option A">
+                        <span class="peer-checked:text-blue-500">Option A</span>
+                    </label>
 
                     <!-- Option B -->
-                    <div
-                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
-                        <img src="./src/img/2.jpeg" class="w-full h-full object-cover rounded-lg" alt="" srcset="">
+                    <label
+                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150 cursor-pointer">
+                        <input type="radio" name="pollOption" value="B" class="hidden peer">
+                        <img src="./src/img/2.jpeg" class="w-full h-full object-cover rounded-lg mb-4" alt="Option B">
+                        <span class="peer-checked:text-blue-500">Option B</span>
+                    </label>
+                </form>
+
+                <!-- Vote Button -->
+                <div class="mt-8">
+                    <button id="vote-button" class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg">Vote</button>
+                </div>
+
+                <!-- Like Button -->
+                <div class="mt-4 flex items-center">
+                    <button id="like-button" class="text-gray-500 hover:text-red-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7">
+                            </path>
+                        </svg>
+                    </button>
+                    <span id="like-count" class="ml-2 text-gray-500">10 likes</span>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="mt-12 w-full max-w-4xl">
+                    <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                    <div id="comments" class="space-y-6">
+                        <!-- Example Comment -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-gray-700 font-semibold">Jane Smith</p>
+                            <p class="text-gray-600">I think Option A is better because...</p>
+                        </div>
+
+                        <!-- Another Comment -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-gray-700 font-semibold">John Doe</p>
+                            <p class="text-gray-600">I prefer Option B.</p>
+                        </div>
+
+                        <!-- More comments can be added similarly -->
                     </div>
 
-                    <!-- User Selection -->
-                    <div class="mt-8">
-                        <button class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg">Vote</button>
+                    <!-- Add Comment Form -->
+                    <div class="mt-6">
+                        <textarea id="comment-input" rows="4"
+                            class="w-full p-4 bg-white rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0e6b4C] focus:outline-none"
+                            placeholder="Add a comment..."></textarea>
+                        <button id="submit-comment"
+                            class="mt-2 bg-[#0e6b4C] text-white px-6 py-2 rounded-lg">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Script to Toggle Dropdown Menu -->
-        <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
 
-            menuToggle.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        </script>
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    });
 
-        <script>
-            $(window).on("load", function () {
-                $("#loading-section").fadeOut(100);
-            });
+    // Handle Voting
+    document.getElementById('vote-button').addEventListener('click', function () {
+        const selectedOption = document.querySelector('input[name="pollOption"]:checked');
+        if (selectedOption) {
+            alert(`You voted for ${selectedOption.value}`);
+        } else {
+            alert('Please select an option before voting.');
+        }
+    });
 
-            $('#menu-toggle').click(function () {
-                $('#mobile-menu').toggle();
-            });
-            AOS.init();
-        </script>
+    // Handle Liking
+    let likeCount = 10;
+    document.getElementById('like-button').addEventListener('click', function () {
+        likeCount++;
+        document.getElementById('like-count').textContent = `${likeCount} likes`;
+    });
+
+    // Handle Submitting Comments
+    document.getElementById('submit-comment').addEventListener('click', function () {
+        const commentInput = document.getElementById('comment-input');
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            const commentSection = document.getElementById('comments');
+            const newComment = document.createElement('div');
+            newComment.classList.add('bg-gray-100', 'p-4', 'rounded-lg');
+            newComment.innerHTML = `<p class="text-gray-700 font-semibold">You</p><p class="text-gray-600">${commentText}</p>`;
+            commentSection.appendChild(newComment);
+            commentInput.value = '';
+        } else {
+            alert('Please enter a comment before submitting.');
+        }
+    });
+</script>
+    <script>
+        $(window).on("load", function () {
+            $("#loading-section").fadeOut(100);
+        });
+
+        $('#menu-toggle').click(function () {
+            $('#mobile-menu').toggle();
+        });
+        AOS.init();
+    </script>
 </body>
 
 </html>
