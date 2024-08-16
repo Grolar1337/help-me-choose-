@@ -90,70 +90,47 @@
                 <h1 class="text-3xl font-bold mb-8">Which is Better</h1>
 
                 <!-- Poll Options -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                <div class="grid grid-cols-2 gap-6 w-full max-w-4xl">
                     <!-- Option A -->
-                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
-                        <div class="bg-gray-100 rounded-full p-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" class="w-12 h-12 text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m10 4l-4-4m4 4L7 8" />
-                            </svg>
-                        </div>
-                        <h2 class="text-xl font-semibold mb-2">Logout</h2>
-                        <p class="text-gray-600 mb-4">Are you sure you want to logout?</p>
-                        <div class="flex space-x-2">
-                            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Logout</button>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded-md">Cancel</button>
-                        </div>
+                    <div
+                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
+                        <img src="./src/img/1.jpeg" class="w-full h-full object-cover rounded-lg" alt="" srcset="">
                     </div>
 
                     <!-- Option B -->
-                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
-                        <div class="bg-gray-100 rounded-full p-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" class="w-12 h-12 text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m10 4l-4-4m4 4L7 8" />
-                            </svg>
-                        </div>
-                        <h2 class="text-xl font-semibold mb-2">Logout</h2>
-                        <p class="text-gray-600 mb-4">Are you sure you want to logout?</p>
-                        <div class="flex space-x-2">
-                            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Cancel</button>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded-md">Logout</button>
-                        </div>
+                    <div
+                        class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:scale-[110%] transition ease-in-out duration-150">
+                        <img src="./src/img/2.jpeg" class="w-full h-full object-cover rounded-lg" alt="" srcset="">
                     </div>
-                </div>
 
-                <!-- User Selection -->
-                <div class="mt-8">
-                    <button class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg">Vote</button>
+                    <!-- User Selection -->
+                    <div class="mt-8">
+                        <button class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg">Vote</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Script to Toggle Dropdown Menu -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
+        <!-- Script to Toggle Dropdown Menu -->
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
 
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-    </script>
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        </script>
 
-    <script>
-        $(window).on("load", function () {
-            $("#loading-section").fadeOut(100);
-        });
+        <script>
+            $(window).on("load", function () {
+                $("#loading-section").fadeOut(100);
+            });
 
-        $('#menu-toggle').click(function () {
-            $('#mobile-menu').toggle();
-        });
-        AOS.init();
-    </script>
+            $('#menu-toggle').click(function () {
+                $('#mobile-menu').toggle();
+            });
+            AOS.init();
+        </script>
 </body>
 
 </html>
