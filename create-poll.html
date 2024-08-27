@@ -112,9 +112,17 @@
 
             <!-- Submit Poll -->
             <div class="text-center">
-                <button class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg hover:bg-[#084931]">Create Poll</button>
+                <button id="buton" class="bg-[#0e6b4C] text-white px-6 py-3 rounded-lg hover:bg-[#084931]">Create Poll</button>
             </div>
         </div>
+    </div>
+</div>
+<!-- Success Modal -->
+<div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white rounded-lg p-6 w-full max-w-sm">
+        <h2 class="text-xl font-bold mb-4">Success!</h2>
+        <p class="mb-6">Poll successfully created!</p>
+        <button id="close-modal" class="bg-[#0e6b4C] text-white px-4 py-2 rounded-lg hover:bg-[#084931]">Close</button>
     </div>
 </div>
 
@@ -132,6 +140,9 @@
         `;
         pollOptionsContainer.appendChild(newOptionDiv);
     });
+
+
+    
 </script>
 
   <script>
@@ -143,7 +154,66 @@
       $('#mobile-menu').toggle();
     });
     AOS.init();
+    // Script to Handle Form Submission
+
+
+    
+
+
+
+
+    // Script to Handle Form Submission
+document.getElementById('buton').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get the poll question
+    const pollQuestion = document.getElementById('poll-question').value;
+
+    // Create a FormData object to hold the data
+    const formData = new FormData();
+    formData.append('title', pollQuestion); // Backend'de 'title' anahtarı olarak kullanılacak
+
+    // Get the poll options (file inputs)
+    const fileInputs = document.querySelectorAll('#poll-options-container input[type="file"]');
+    fileInputs.forEach(input => {
+        if (input.files.length > 0) {
+            formData.append('images', input.files[0]); // 'images' anahtarı ile dosyaları ekliyoruz
+        }
+    });
+
+    // Send the POST request using Fetch API
+    fetch('http://127.0.0.1:10000/api/poll', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        if (data.status === "ok") {
+            // Eğer başarılıysa, formu sıfırla ve modalı göster
+            document.getElementById('poll-question').value = '';
+            fileInputs.forEach(input => input.value = '');
+
+            // Show the success modal
+            document.getElementById('success-modal').classList.remove('hidden');
+        } else {
+            alert('There was an issue creating the poll.');
+        }
+        // Success durumu için işlemleri burada yapabilirsiniz (örn. bir başarı mesajı göstermek, başka bir sayfaya yönlendirmek)
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        // Hata durumunu burada ele alabilirsiniz (örn. hata mesajı göstermek)
+    });
+    document.getElementById('close-modal').addEventListener('click', function () {
+    document.getElementById('success-modal').classList.add('hidden');
+});
+
+});
+
+
   </script>
 </body>
+
 
 </html>
